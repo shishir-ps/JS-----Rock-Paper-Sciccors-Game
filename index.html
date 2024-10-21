@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="gameName">ROCK<br />PAPER<br />SCISSORS</div>
+        <div class="scoreWrapper">
+          <div class="ScoreBoard">
+            COMPUTER<br />SCORE<br /><span id="pcScore">0</span>
+          </div>
+          <div class="ScoreBoard">
+            YOUR<br />SCORE<br /><span id="humanScore">0</span>
+          </div>
+        </div>
+      </div>
+      <div class="gameArea">
+        <button class="playBtn rock" id="rock">
+          <div class="choices">
+            <img src="./images/rock.svg" alt="rock" />
+          </div>
+        </button>
+        <button class="playBtn paper" id="paper">
+          <div class="choices">
+            <img src="./images/paper.svg" alt="Paper" />
+          </div>
+        </button>
+        <button class="playBtn scissors" id="scissors">
+          <div class="choices">
+            <img src="./images/scissors.svg" alt="scissors" />
+          </div>
+        </button>
+        <div class="triangleContainer">
+          <div class="line top"></div>
+          <div class="line left"></div>
+          <div class="line right"></div>
+        </div>
+      </div>
+
+      <div class="gameOn hidden">
+        <div class="playerChoiceContainer"></div>
+        <div class="centerMsg">
+          <div class="mainmsg"></div>
+          <div class="playAgainBtnContainer">
+            <button class="playAgainBtn">PLAY AGAIN</button>
+          </div>
+        </div>
+        <div class="pcChoiceContainer"></div>
+      </div>
+    </div>
+    <div class="bottomBtn">
+      <button class="ruleBtn">RULES</button>
+      <div class="nxtBtnContainer hidden">
+        <button class="ruleBtn nxt">NEXT</button>
+      </div>
+    </div>
+    <div class="ruleContainer">
+      <div class="rulecontent">
+        <button class="cross">X</button>
+        <div class="ruleHeading">Game Rules</div>
+        <div class="rules">
+          <ul>
+            <li>
+              <span class="bullet"></span>Rock beats scissors, scissors beat
+              paper, and paper beats rock.
+            </li>
+            <li>
+              <span class="bullet"></span>Agree ahead of time whether you'll
+              count off "rock, paper, scissors, shoot" or just "rock, paper,
+              scissors."
+            </li>
+            <li>
+              <span class="bullet"></span>Use rock, paper, scissors to settle
+              minor decisions or simply play to pass the time.
+            </li>
+            <li>
+              <span class="bullet"></span>If both players lay down the same
+              hand, each player lays down another hand.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="winPageContainer hidden">
+      <div class="winPage">
+        <div class="winImg">
+          <img src="./images/stars.svg" alt="stars" class="star" />
+          <img src="./images/cup.svg" alt="cup" class="cup" />
+        </div>
+        <div class="winMsg">
+          <span class="winMsgHeading">HURRAY!!</span><br />YOU WON THE GAME
+        </div>
+        <div class="playAgainBtnContainer">
+          <button class="playAgainBtn">PLAY AGAIN</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
