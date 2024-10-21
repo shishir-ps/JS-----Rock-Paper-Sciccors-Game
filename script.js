@@ -11,13 +11,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameArea = document.querySelector(".gameArea");
     const gameOn = document.querySelector(".gameOn");
     const playAgainBtn = document.querySelectorAll(".playAgainBtn");
-
+    const playAgainBtnContainer = document.querySelectorAll(".playAgainBtnContainer");
     
 
 
     const playerChoiceContainer = document.querySelector(".playerChoiceContainer");
     const pcChoiceContainer = document.querySelector(".pcChoiceContainer");
     const centerMsg = document.querySelector(".mainmsg");
+
+    const playerScoreContainer = document.querySelector("#humanScore")
+    const pcScoreContainer = document.querySelector("#pcScore")
+    
 
     const choices = ["rock", "paper", "scissors"];
     let playerChoose ='';
@@ -26,6 +30,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const winMsg = `<span class="resultMsg">YOU WIN</span> <br> AGAINST PC <br>`;
     const loseMsg = `<span class="resultMsg">YOU LOSE</span> <br> AGAINST PC <br>`;
     const tieMsg =`<span class="resultMsg">TIE UP</span> <br><br>`;
+        
+    
+    if (!localStorage.getItem('playerScore')) {
+        localStorage.setItem('playerScore', 0); 
+        }
+
+    if (!localStorage.getItem('pcScore')) {
+            localStorage.setItem('pcScore', 0); 
+        }
+
+    let playerScore = parseInt(localStorage.getItem('playerScore'));
+    let pcScore = parseInt(localStorage.getItem('pcScore'));
+
+    playerScoreContainer.textContent=playerScore;
+    pcScoreContainer.textContent=pcScore;
+
     
     const choosenHand= function(hand) {
         return (`<div class="palyerChoice">
@@ -48,9 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return (pcPlayed === "paper") ? winMsg : loseMsg;
     
             case "paper":
-                return (pcPlayed === "rock") ? winMsg : loseMsg;
-    
-            
+                return (pcPlayed === "rock") ? winMsg : loseMsg; 
         }
     };
     
@@ -61,19 +79,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 pcChoose=choices[Math.floor(Math.random()*3)];
                 playerChoose = playBtns.id
+                let result = centerWinMsgDecider(playerChoose, pcChoose);
                 console.log(playerChoose + pcChoose);    
                 gameArea.classList.add('hidden');
                 gameOn.classList.remove('hidden');
                 playerChoiceContainer.innerHTML = choosenHand(playerChoose);
                 setTimeout(() => {
                 pcChoiceContainer.innerHTML = choosenHand(pcChoose);
+                    
+                    
+                    
+
                 }, 1000);
-                let result = centerWinMsgDecider(playerChoose, pcChoose);
+                
                 setTimeout(() => {
                     centerMsg.innerHTML = result;
+                    playAgainBtnContainer.forEach((btn)=>{
+                        btn.classList.remove('hidden');
+                    });
                     if(result===winMsg){
-                        nxtBtnContainer.classList.remove('hidden')
+                        nxtBtnContainer.classList.remove('hidden');
+                        playerScore += 1;
+                        localStorage.setItem('playerScore', playerScore);
+                        playerScoreContainer.textContent=playerScore;
                     }
+                    if(result===loseMsg){
+                        pcScore += 1;
+                        localStorage.setItem('pcScore', pcScore);
+                        pcScoreContainer.textContent=pcScore;
+                    }
+                    
                     }, 1500);
                     
             });
@@ -112,6 +147,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 pcChoiceContainer.innerHTML = '';
                 centerMsg.innerHTML='';
                 nxtBtnContainer.classList.add('hidden');
+                playAgainBtnContainer.forEach((btn)=>{
+                    btn.classList.add('hidden');
+                });
                 
             });
         })

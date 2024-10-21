@@ -12,6 +12,7 @@ html {
 }
 .dull_background {
   background: hsl(93, 25%, 67%);
+  pointer-events: none;
 }
 body {
   background-color: #8cc461;
@@ -332,8 +333,10 @@ body {
 }
 .playAgainBtnContainer {
   margin-top: 3rem;
+
 }
 .playAgainBtn {
+
   font-family: Roboto;
   font-size: 15px;
   font-weight: 600;
@@ -346,12 +349,7 @@ body {
   cursor: pointer;
 }
 
-.nxtBtnContainer_hide{
-    display: none;
-}
-.nxtBtnContainer{
-    display: block;
-}
+
 
 .gameOn{
   margin: 1rem auto;
@@ -368,6 +366,8 @@ body {
   transform: scale(1.6);
 }
 
+
+
 .centerMsg{
 padding-top: 15rem;
 font-size: 25px;
@@ -376,6 +376,10 @@ line-height: 3rem;
 letter-spacing: 0.1em;
 color: white;
 
+}
+
+.mainmsg{
+  height: 8rem;
 }
 .resultMsg{
   font-size: 4rem;
