@@ -10,14 +10,19 @@ html {
   box-sizing: border-box;
   font-family: Roboto;
 }
+
+/*fades the backgroung then rule button is pressed */
 .dull_background {
   background: hsl(93, 25%, 67%);
   pointer-events: none;
 }
+
+/* Backgrongd color - green */
 body {
   background-color: #8cc461;
 }
 
+/* heading section for game name and scores */
 .header {
   margin: 6rem auto;
   border: white solid 0.2rem;
@@ -64,7 +69,7 @@ body {
   align-items: center;
   text-align: center;
   font-size: 1.4rem;
-  line-height-: 1.2;
+  line-height: 1.2;
   letter-spacing: 2px;
   color: #656565;
 }
@@ -75,6 +80,8 @@ body {
   font-size: 6rem;
   line-height: 1.2;
 }
+
+/* section for rules and next button */
 .bottomBtn {
   position: absolute;
   bottom: 2rem;
@@ -114,6 +121,8 @@ body {
   opacity: 1;
   pointer-events: initial;
 }
+
+/* rules-text */
 .rulecontent {
   background-color: #004429; /* Dark green background */
   color: white; /* White font color */
@@ -136,26 +145,30 @@ body {
 }
 
 .rules ul {
-  list-style-type: none; /* Remove default bullets */
-  padding-left: 0; /* Remove padding */
+  list-style-type: none; 
+  padding-left: 0;
 }
 
 .rules li {
   margin-bottom: 1rem;
-  position: relative; /* Set position relative for bullet positioning */
-  padding-left: 20px; /* Space for the bullet */
+  position: relative; 
+  padding-left: 20px; 
 }
 
+
+/* for square bullets */
 .bullet {
-  position: absolute; /* Absolute positioning for the bullet */
-  left: 0; /* Align to the left */
-  top: 50%; /* Center vertically */
-  transform: translateY(-50%); /* Adjust to perfectly center */
-  width: 10px; /* Width of the bullet */
-  height: 10px; /* Height of the bullet */
-  background-color: #ffd600; /* Bullet color (yellow in this example) */
+  position: absolute; 
+  left: 0; 
+  top: 50%; 
+  transform: translateY(-50%); 
+  width: 10px; 
+  height: 10px; 
+  background-color: #ffd600; 
 }
 
+
+/* close rules button */
 .cross {
   position: absolute; /* Position absolute to place over the content */
   top: -3rem; /* Adjust top position */
@@ -175,6 +188,7 @@ body {
   cursor: pointer;
 }
 
+/* game paly area for game buttons  */
 .gameArea {
   width: 50%;
   max-width: 60rem;
@@ -187,7 +201,7 @@ body {
   place-items: center;
   row-gap: 10rem;
   column-gap: 5rem;
-  /* background-color: pink; */
+  
 }
 
 #rock {
@@ -199,6 +213,7 @@ body {
 #scissors {
   grid-column: span 2;
 }
+
 .playBtn {
   border-radius: 50%;
   color: white;
@@ -217,16 +232,20 @@ body {
   border: 1rem solid #bd00ff;
 }
 
+
+/* background triangle line */
 .triangleContainer {
-  position: absolute; /* Change to absolute */
-  width: 200px; /* Set container width */
-  height: 200px; /* Set container height */
-  left: 50%; /* Center horizontally */
-  top: 50%; /* Center vertically */
-  transform: translate(-50%, -50%); /* Offset to truly center */
-  z-index: -1; /* Send to back */
+  position: absolute; 
+  width: 200px; 
+  height: 200px;
+  left: 50%; 
+  top: 50%; 
+  transform: translate(-50%, -50%); 
+  z-index: -1;
 }
 
+
+/* for divs that are used as line */
 .line {
   position: absolute;
   background-color: black;
@@ -264,21 +283,7 @@ body {
   transform-origin: top right;
 }
 
-.gameArea {
-  position: relative;
-  width: 50%;
-  height: 50vh;
-  margin: 0 auto;
-  display: grid;
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: repeat(2, 1fr);
-  place-items: center;
-}
-
-
-
-
-
+/* trophy page comes when next button is clicked */
 .winPage {
   display: flex;
   flex-direction: column;
@@ -312,8 +317,9 @@ body {
   height: 20rem;
   bottom: 0;
   position: absolute;
-  z-index: 2; /* Cup on top of star */
+  z-index: 2; 
 }
+
 .winMsg {
   margin-top: 7rem;
   font-family: Roboto;
@@ -331,9 +337,11 @@ body {
   line-height: 106.64px;
   letter-spacing: 0.1em;
 }
+
+
+/* Play again button */
 .playAgainBtnContainer {
   margin-top: 3rem;
-  
 
 }
 .playAgainBtn {
@@ -350,8 +358,7 @@ body {
   cursor: pointer;
 }
 
-
-
+/* when you selected any move land to this page */
 .gameOn{
   margin: -8rem auto;
   width: 70%;
@@ -363,48 +370,13 @@ body {
   text-align: center;
 }
 
-
-
+/* cocentric shadow for winner  */
 .winnerShadow {
   box-shadow: 0 0 0 50px rgba(40,154,39,1), 0 0 0 75px rgba(50,166,47,1), 0 0 0 100px rgba(102,178,72,1);
-  animation: winner 3s ease forwards;
   border-radius: 50%;
-  
 }
 
-@keyframes winnerShadow {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-
-.centerMsg{
-padding-top: 15rem;
-font-size: 25px;
-font-weight: 800;
-line-height: 3rem;
-letter-spacing: 0.1em;
-color: white;
-z-index: 1000;
-
-}
-
-.mainmsg{
-  height: 8rem;
-  margin-top: 8rem;
-}
-.resultMsg{
-  font-size: 4rem;
-  font-weight: 800;
-  line-height: 4.5rem;
-  letter-spacing: 0.1em;
-
-}
-
+/* for pc and player choices */
 .playerChoiceContainer{
   height: 18rem;
   width: 18rem;
@@ -428,6 +400,31 @@ z-index: 1000;
 }
 
 
+/* win lose tie msg */
+.centerMsg{
+padding-top: 15rem;
+font-size: 25px;
+font-weight: 800;
+line-height: 3rem;
+letter-spacing: 0.1em;
+color: white;
+z-index: 1000;
+}
+
+.mainmsg{
+  height: 8rem;
+  margin-top: 8rem;
+}
+
+.resultMsg{
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 4.5rem;
+  letter-spacing: 0.1em;
+
+}
+
+/* you picked - pc picked msg */
 .pickMsg{
   position: absolute; /* Allows you to position the element relative to its nearest positioned ancestor */
   top: -28%;
@@ -438,13 +435,11 @@ z-index: 1000;
   font-size: 1.2rem;
   font-weight: 500;
   letter-spacing: 0.1em;
-
-
 }
 
 
 
-
+/* used for hiding and howing necessary class */
 .hidden{
   display: none;
 }
