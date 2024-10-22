@@ -46,15 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
     playerScoreContainer.textContent=playerScore;
     pcScoreContainer.textContent=pcScore;
 
-    
-    const choosenHand= function(hand) {
-        return (`<div class="palyerChoice">
-                        
-                        <button class="playBtn ${hand}" id="${hand}">
-                            <img src="./images/${hand}.svg" alt="${hand}" />
-                        </button>
-                    </div>`)
-    };
     const centerWinMsgDecider = function(youPlayed, pcPlayed) {
         if (youPlayed === pcPlayed) {
             return tieMsg; // If both played the same, it's a tie
@@ -72,24 +63,39 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
     
+    const choosenHand= function(hand) {
+        return (`<div class="palyerChoice ">
+                        <div class="pickMsg"> YOU PICKED </div>
+                        <button class="playBtn ${hand} " id="${hand}">
+                            <img src="./images/${hand}.svg" alt="${hand}" />
+                        </button>
+                    </div>`)
+    };
+    const choosenHandpc= function(hand) {
+        return (`<div class="palyerChoice ">
+                        <div class="pickMsg"> PC PICKED </div>
+                        <button class="playBtn ${hand} " id="${hand}">
+                            <img src="./images/${hand}.svg" alt="${hand}" />
+                        </button>
+                    </div>`)
+    };
+    
+    
     
 
     playBtns.forEach(playBtns => {
             playBtns.addEventListener('click',()=>{
                 
                 pcChoose=choices[Math.floor(Math.random()*3)];
-                playerChoose = playBtns.id
+                playerChoose = playBtns.id;
                 let result = centerWinMsgDecider(playerChoose, pcChoose);
                 console.log(playerChoose + pcChoose);    
                 gameArea.classList.add('hidden');
                 gameOn.classList.remove('hidden');
                 playerChoiceContainer.innerHTML = choosenHand(playerChoose);
                 setTimeout(() => {
-                pcChoiceContainer.innerHTML = choosenHand(pcChoose);
-                    
-                    
-                    
-
+                pcChoiceContainer.innerHTML = choosenHandpc(pcChoose);
+                 
                 }, 1000);
                 
                 setTimeout(() => {
@@ -102,14 +108,24 @@ document.addEventListener('DOMContentLoaded', () => {
                         playerScore += 1;
                         localStorage.setItem('playerScore', playerScore);
                         playerScoreContainer.textContent=playerScore;
+                        playerChoiceContainer.classList.add('winnerShadow');
+
                     }
                     if(result===loseMsg){
                         pcScore += 1;
                         localStorage.setItem('pcScore', pcScore);
                         pcScoreContainer.textContent=pcScore;
+                        pcChoiceContainer.classList.add('winnerShadow');
+
                     }
                     
                     }, 1500);
+
+                    // if (result === loseMsg) {
+                    //     setTimeout(() => {
+                    //         document.querySelector(`#${pcChoose}`).classList.add('winnerShadow');
+                    //     }, 3000);  // 3 seconds delay
+                    // }
                     
             });
             
@@ -150,6 +166,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 playAgainBtnContainer.forEach((btn)=>{
                     btn.classList.add('hidden');
                 });
+                pcChoiceContainer.classList.remove('winnerShadow');
+                playerChoiceContainer.classList.remove('winnerShadow');
                 
             });
         })

@@ -333,6 +333,7 @@ body {
 }
 .playAgainBtnContainer {
   margin-top: 3rem;
+  
 
 }
 .playAgainBtn {
@@ -352,7 +353,7 @@ body {
 
 
 .gameOn{
-  margin: 1rem auto;
+  margin: -8rem auto;
   width: 70%;
   height: 45vh;
   border-radius: 1.5rem;
@@ -362,10 +363,23 @@ body {
   text-align: center;
 }
 
-.palyerChoice, .pcChoice{
-  transform: scale(1.6);
+
+
+.winnerShadow {
+  box-shadow: 0 0 0 50px rgba(40,154,39,1), 0 0 0 75px rgba(50,166,47,1), 0 0 0 100px rgba(102,178,72,1);
+  animation: winner 3s ease forwards;
+  border-radius: 50%;
+  
 }
 
+@keyframes winnerShadow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
 
 .centerMsg{
@@ -380,6 +394,7 @@ color: white;
 
 .mainmsg{
   height: 8rem;
+  margin-top: 8rem;
 }
 .resultMsg{
   font-size: 4rem;
@@ -390,52 +405,39 @@ color: white;
 }
 
 .playerChoiceContainer{
-  height: 30rem;
-  width: 30rem;
+  height: 18rem;
+  width: 18rem;
   margin-top: 20rem;
+  margin-left: 6rem;
+  margin-right: -6rem;
+  
 
 }
 .pcChoiceContainer{
-  height: 30rem;
-  width: 30rem;
+  height: 18rem;
+  width: 18rem;
   margin-top: 20rem;
 
 }
+.palyerChoice, .pcChoice{
+  transform: scale(1.6);
+  margin-top: 3rem;
+}
 
 
+.pickMsg{
+  position: absolute; /* Allows you to position the element relative to its nearest positioned ancestor */
+  top: -28%;
+  left: 50%; /* Move right to the middle */
+  transform: translate(-50%, -50%); /* Offset it by half its width and height to center it */
+  text-align: center; /* Center-align the text within the element */
+  color: white; /* Set text color (optional) */
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
