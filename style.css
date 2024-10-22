@@ -35,10 +35,8 @@ body {
 }
 
 .gameName {
-  height: 80%;
   width: 30%;
-  margin-left: 1.5rem;
-  margin-bottom: 1rem;
+  margin: 2rem 1rem;
   font-size: 3.5rem;
   font-weight: 600;
   line-height: 4.3rem;
@@ -48,20 +46,20 @@ body {
 }
 
 .scoreWrapper {
+  margin-right: 5px;
   display: flex;
   gap: 1rem;
-  align-items: center;
   justify-content: flex-end;
-  margin-right: 1.5rem;
-  height: 100%;
   width: 40%;
+  height: 100%;
   font-weight: 600;
 }
 
 .ScoreBoard {
+  margin: 1rem 1rem;
+  padding-top: 1rem;
   width: 12rem;
-  height: 80%;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -107,10 +105,10 @@ body {
 
 
 .ruleContainer {
-  position: fixed; /* Fix the container to the viewport */
-  bottom: 8rem; /* Position from the bottom */
-  right: 2rem; /* Position from the right */
-  width: 23%; /* Set a width for the container */
+  position: fixed; 
+  bottom: 8rem; 
+  right: 2rem; 
+  width: 23%; 
   z-index: 1000;
   height: 55%;
   opacity: 0;
@@ -124,14 +122,13 @@ body {
 
 /* rules-text */
 .rulecontent {
-  background-color: #004429; /* Dark green background */
-  color: white; /* White font color */
-  border: 5px solid white; /* White border */
-  padding: 2rem; /* Inner padding */
-  border-radius: 8px; /* Optional: rounded corners */
+  background-color: #004429; 
+  color: white; 
+  border: 5px solid white; 
+  padding: 2rem; 
+  border-radius: 8px;
   position: absolute;
-  width: 90%; /* Slightly smaller than container */
-  height: 90%;
+  width: 90%; 
   bottom: 0;
   display: flex;
   flex-direction: column;
